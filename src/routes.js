@@ -1,15 +1,23 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import {
+	BrowserRouter,
+	Route,
+	Switch,
+} from 'react-router-dom';
 
 import {App, Login} from './containers';
 import {Dashboard} from './containers';
-import {Counter} from './containers';
-import { requireAuth, checkAuth } from './util';
+// import {Counter} from './containers';
+// import { requireAuth, checkAuth } from './util';
 
 
-export default (
-	<Route path="/" component={App}>
-		<IndexRoute component={requireAuth(Dashboard)} />
-		<Route path="/login" component={checkAuth(Login)}/>
-	</Route>
+const Routers = () => (
+	<BrowserRouter>
+		<Switch>
+			<Route exact path="/" component={Login} />
+			<Route path="/dashboard" component={Dashboard} />
+		</Switch>
+	</BrowserRouter>
 );
+
+export { Routers };

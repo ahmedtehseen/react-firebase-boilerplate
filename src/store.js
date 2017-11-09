@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import { routerMiddleware } from 'react-router-redux';
-import { browserHistory } from 'react-router';
 import { reactReduxFirebase } from 'react-redux-firebase';
 import * as firebase from 'firebase';
 
@@ -23,9 +22,6 @@ const logger = createLogger({
   }
 });
 
-
-const routingMiddleware = routerMiddleware(browserHistory)
-
 var config = {
   apiKey: "AIzaSyAoebI0ljWw-UylmtFJLEGhV6Seoy-qxUE",
   authDomain: "trouble-tickets-147f2.firebaseapp.com",
@@ -40,5 +36,5 @@ firebase.initializeApp(config)
 
 export const store = createStore(rootReducer, rootInitialState, composeEnhancers(
 	reactReduxFirebase(config, { userProfile: 'users' }),
-  applyMiddleware(logger, epicMiddleware, routingMiddleware)
+  applyMiddleware(logger, epicMiddleware)
 ));
