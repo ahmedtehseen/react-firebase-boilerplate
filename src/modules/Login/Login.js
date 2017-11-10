@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { 
+import { Field } from 'redux-form';
+import {
 	Paper,
 	Divider,
 	TextField,
-	FlatButton,
 	RaisedButton
 } from 'material-ui';
 // css
@@ -28,7 +25,7 @@ const renderField = ({input, label, type, meta: {touched, error, invalid}}) => {
 };
 
 
-class LoginForm extends Component{
+export class LoginComponent extends Component{
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -37,7 +34,7 @@ class LoginForm extends Component{
 	}
 
 	onFormSubmit(props){
-		console.log(props)	
+		console.log(props)
   }
 
 
@@ -49,31 +46,31 @@ class LoginForm extends Component{
 					<h2 className='text-center'>Login Form</h2>
 					<Divider/>
 					<form onSubmit={handleSubmit((props) => this.onFormSubmit(props))} className='login-form'>
-						<Field 
-							name='email' 
-							component={renderField} 
-							label='Email' 
-							type='email' 
+						<Field
+							name='email'
+							component={renderField}
+							label='Email'
+							type='email'
 						/>
-						<Field 
-							name='password' 
-							component={renderField} 
-							label='Password' 
-							type='password' 
+						<Field
+							name='password'
+							component={renderField}
+							label='Password'
+							type='password'
 						/>
-						<RaisedButton 
-							buttonStyle={{ 
+						<RaisedButton
+							buttonStyle={{
 								borderRadius: '2em',
 								width: '150px'
 							}}
-							style={{ 
+							style={{
 								borderRadius: '2em',
 								width: '150px'
 							}}
 							labelColor='#fff'
 							backgroundColor={themeColor}
-							label='Login' 
-							type='submit' 
+							label='Login'
+							type='submit'
 						/>
 						<br/>
 					</form>
@@ -82,33 +79,33 @@ class LoginForm extends Component{
 		)
 	}
 }
-// form validation
-function validate(values){
-	const errors = {}
+// // form validation
+// function validate(values){
+// 	const errors = {}
 
-	if(!values.email){
-		errors.email = 'Email is required.'
-	}
+// 	if(!values.email){
+// 		errors.email = 'Email is required.'
+// 	}
 
-	if(values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,5}$/i.test(values.email)){
-		errors.email = 'Invalid email address.'
-	}
+// 	if(values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,5}$/i.test(values.email)){
+// 		errors.email = 'Invalid email address.'
+// 	}
 
-	if(!values.password){
-		errors.password = 'Password is required.'
-	}
+// 	if(!values.password){
+// 		errors.password = 'Password is required.'
+// 	}
 
-	return errors
-}
-
-
-const form = reduxForm({
-	form: 'LoginForm',
-	validate
-})
+// 	return errors
+// }
 
 
-export let Login = connect(
-	null,
-	{}
-)(form(LoginForm))
+// const form = reduxForm({
+// 	form: 'LoginForm',
+// 	validate
+// })
+
+
+// export let Login = connect(
+// 	null,
+// 	{}
+// )(form(LoginForm))

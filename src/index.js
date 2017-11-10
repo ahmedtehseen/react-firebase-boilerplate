@@ -1,13 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import { Router, browserHistory } from 'react-router'
-import { Provider } from 'react-redux'
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Provider } from 'react-redux';
 
-import {store} from './store'
-import { Routers } from './routes'
-import './index.css'
+import {store} from './configs/store';
+import { Routers } from './configs/routes';
+import './index.css';
 
 injectTapEventPlugin()
 

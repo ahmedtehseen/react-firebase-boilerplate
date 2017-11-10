@@ -5,11 +5,7 @@ import {
 	Switch,
 } from 'react-router-dom';
 
-import {App, Login} from './containers';
-import {Dashboard} from './containers';
-// import {Counter} from './containers';
-// import { requireAuth, checkAuth } from './util';
-
+import { Login, Dashboard } from '../modules';
 
 const Routers = () => (
 	<BrowserRouter>
